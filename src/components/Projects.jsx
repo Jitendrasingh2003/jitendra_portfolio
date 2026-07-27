@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { FiExternalLink, FiX, FiArrowUpRight, FiFolder, FiClock, FiStar, FiInfo, FiCode, FiBox } from 'react-icons/fi';
+import { FiExternalLink, FiX, FiArrowUpRight, FiFolder, FiClock, FiStar, FiInfo, FiCode, FiBox, FiCheckCircle } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import './Projects.css';
 
@@ -11,8 +11,8 @@ const ProjectCard = ({ project, onClick }) => {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -33,20 +33,25 @@ const ProjectCard = ({ project, onClick }) => {
 
   return (
     <motion.div 
-      className="project-card"
+      className="project-card long-card-expanded"
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      onClick={onClick}
+      viewport={{ once: true, amount: 0.15 }}
+      layout
     >
       <div className="project-card-glow"></div>
-      <div style={{ transform: "translateZ(30px)" }} className="project-content">
+      <div style={{ transform: "translateZ(25px)" }} className="project-content">
+        
+        {/* Top Header */}
         <div className="project-header">
-          <div className="project-icon-wrapper">
-            <FiFolder />
+          <div className="project-header-left">
+            <div className="project-icon-wrapper">
+              <FiFolder />
+            </div>
+            <span className="project-cat-badge">{project.category}</span>
           </div>
           <div className="project-date-badge">
             <FiClock style={{ marginRight: '6px', marginBottom: '-2px' }} />
@@ -54,23 +59,50 @@ const ProjectCard = ({ project, onClick }) => {
           </div>
         </div>
         
+        {/* Title & Description */}
         <div className="project-body">
-          <h3>{project.title}</h3>
+          <h3 className="project-card-title">{project.title}</h3>
+          <p className="project-subtitle-card">{project.subtitle}</p>
           <p className="project-desc">{project.shortDesc}</p>
           
-          <div className="project-tech-mini">
-            {project.technologies.slice(0, 3).map((tech, i) => (
-              <span key={i}>{tech}</span>
+          {/* Key Feature Highlights directly on card */}
+          <div className="project-card-highlights">
+            <h4 className="highlights-header"><FiStar /> Key Features & Modules</h4>
+            <ul className="highlights-list">
+              {project.points.slice(0, 4).map((pt, i) => (
+                <li key={i}>
+                  <FiCheckCircle className="highlight-check" />
+                  <span><strong>{pt.label}:</strong> {pt.desc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Full Tech Stack */}
+          <div className="project-tech-full">
+            {project.technologies.map((tech, i) => (
+              <span key={i} className="tech-badge">{tech}</span>
             ))}
-            {project.technologies.length > 3 && <span className="more-tech">+{project.technologies.length - 3}</span>}
           </div>
         </div>
         
-        <div className="project-footer">
-          <span className="view-btn-text">Explore Project</span>
-          <div className="view-btn-icon">
-            <FiArrowUpRight />
-          </div>
+        {/* Action Footer */}
+        <div className="project-footer-actions">
+          <button className="explore-details-btn" onClick={onClick}>
+            Explore Architecture & Workspaces <FiArrowUpRight />
+          </button>
+          
+          {project.link !== "#" && (
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="github-direct-link"
+              title="View GitHub Repository"
+            >
+              <FaGithub /> Source
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -79,76 +111,89 @@ const ProjectCard = ({ project, onClick }) => {
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  // Prevent background page scrolling when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
+  const categories = ['All', 'AI Applications', 'Full Stack'];
 
   const projects = [
     {
       id: 1,
-      title: "AI Healthcare Analytics Dashboard",
-      shortDesc: "Comprehensive AI healthcare platform for clinical analysis and hospital management.",
+      title: "Hospital Management System",
+      category: "AI Applications",
+      shortDesc: "Next-generation Hospital Management and AI-Assisted Clinical Support Dashboard powered by Google Gemini API (@google/genai), Prisma v7, Supabase PostgreSQL, and Next.js.",
       date: "May 2026",
-      technologies: ["Next.js 16", "React 19", "Claude API", "Prisma v7", "Supabase"],
-      fullTitle: "AI HEALTHCARE DASHBOARD",
-      subtitle: "AI Powered Hospital Management System",
+      technologies: ["Google Gemini API", "Next.js 16", "React 19", "TypeScript", "Prisma v7", "Supabase", "Twilio", "Tailwind CSS"],
+      fullTitle: "HOSPITAL MANAGEMENT SYSTEM",
+      subtitle: "AI-Assisted Clinical Support & Multi-Role Hospital Ecosystem",
       detailedStack: {
-        "Frontend": "Next.js 16, React 19, TypeScript, Tailwind CSS v4, Recharts, Lucide React, Next Themes",
-        "Backend": "Next.js API Routes, Prisma ORM v7, PostgreSQL",
-        "Database & Cloud": "Supabase, Prisma Client",
-        "AI": "Claude API (claude-sonnet-4-20250514)"
+        "Framework & Core": "Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Recharts",
+        "AI Engine": "Google Gen AI SDK (@google/genai) — Gemini 3.1 & 2.5 Flash/Pro",
+        "Database & ORM": "PostgreSQL hosted on Supabase, Prisma ORM v7",
+        "Integrations": "Twilio (SMS Alerts), SMTP (Email Notifications), SVG Maps"
       },
       points: [
-        { label: "AI Medical Report Analyzer", desc: "Built a sophisticated tool using Claude API that parses medical lab reports, automatically highlights abnormal parameters, and provides clinical recommendations." },
-        { label: "Intelligent Medical Assistant", desc: "Integrated an AI Chat Assistant (Claude-sonnet) capable of handling medical queries in Hinglish, providing doctors with instant clinical guidelines." },
-        { label: "Advanced Full-Stack Infrastructure", desc: "Leveraged Next.js 16 and Prisma ORM v7 with a Supabase PostgreSQL backend to manage complex data for patients and hospital operations." },
-        { label: "Hospital Operations Ecosystem", desc: "Designed a comprehensive management system covering OPD queues, bed management, and real-time KPI visualization." }
+        { label: "Doctor Workspace & AI Copilot", desc: "Real-time differential diagnosis generator using Google Gemini API, symptom 'Red Flags', multi-modal scans (X-rays/MRIs), and Rx Drug Safety Matrix." },
+        { label: "Admin & Receptionist Dashboard", desc: "Unified patient onboarding, OPD/IPD queueing, ward bed allocation, and automated AI Triage classification based on symptom severity." },
+        { label: "Pharmacist Portal & Expiry Optimizer", desc: "Smart medicine inventory logging, AI Expiry Optimizer to minimize wastage, and pharmaceutical allergy parameter alerts." },
+        { label: "Nurse & OT Manager Workspace", desc: "Vitals logging tracker, structured patient shift handovers, surgery scheduling, and Operational Theatre (OT) availability manager." },
+        { label: "Super Admin Suite & Analytics", desc: "Global multi-hospital CMS, interactive billing summaries, subscriptions, and AI support ticket auto-categorization." }
       ],
-      purpose: "This project streamlines hospital management by automating clinical analysis and administrative tasks, reducing human error, and providing instant medical support via AI.",
+      purpose: "This dashboard serves as an intelligent clinical decision support tool and comprehensive hospital management system, automating workflows for doctors, nurses, pharmacists, admins, and OT managers.",
       link: "https://github.com/Jitendrasingh2003/healthcare-dashboard"
     },
     {
       id: 2,
-      title: "AI Resume Builder",
-      shortDesc: "Generate professional resumes instantly using AI-powered content suggestions.",
+      title: "AI Resume Builder (Resume Genie)",
+      category: "AI Applications",
+      shortDesc: "AI-driven career tool that generates ATS-optimized professional resume content, bullet points, and dynamic PDFs in seconds.",
       date: "June 2025",
-      technologies: ["React.js", "OpenAI API", "Node.js", "MongoDB"],
+      technologies: ["React.js", "OpenAI API", "Node.js", "Express.js", "MongoDB", "JSPDF"],
       fullTitle: "RESUME GENIE",
-      subtitle: "AI-Powered Career Tool — June 2025",
+      subtitle: "AI-Powered Career & ATS Resume Suite — June 2025",
       techStack: "React.js, Node.js, Express.js, MongoDB, OpenAI API, JSPDF",
       points: [
-        { label: "AI Content Generation", desc: "Utilized OpenAI's GPT models to dynamically generate professional summaries and experience descriptions based on user input." },
-        { label: "Smart PDF Generation", desc: "Implemented client-side PDF generation allowing users to download their resumes in multiple professional templates instantly." },
-        { label: "ATS Optimization", desc: "Engineered templates specifically designed to be highly readable by Applicant Tracking Systems (ATS), increasing interview chances." }
+        { label: "AI Content Suggestion", desc: "Leverages GPT models to craft tailored professional summaries, key technical achievements, and role bullet points." },
+        { label: "Instant Multi-Format PDF Export", desc: "Client-side PDF rendering allowing users to switch between multiple clean corporate resume templates." },
+        { label: "ATS Scanner Optimization", desc: "Formats resume layout and keywords specifically to score highly on Applicant Tracking Systems (ATS)." }
       ],
-      purpose: "To help job seekers create professional, high-quality resumes without the hassle of formatting, leveraging AI to highlight their best professional skills.",
+      purpose: "Helps job seekers produce high-impact, professional resumes instantly without formatting headaches, leveraging AI for maximum interview callbacks.",
       link: "#"
     },
     {
       id: 3,
-      title: "Ecommerce Web Application",
-      shortDesc: "Full-stack online store with product browsing, cart system, and secure checkout.",
+      title: "Ecommerce Web Application (Shop Sphere)",
+      category: "Full Stack",
+      shortDesc: "End-to-end full-stack e-commerce web platform featuring dynamic catalog management, secure user authentication, persistent cart, and order processing.",
       date: "October 2025",
-      technologies: ["JavaScript", "Node.js", "Express.js", "MongoDB", "CSS3"],
+      technologies: ["JavaScript", "Node.js", "Express.js", "MongoDB", "REST APIs", "CSS3"],
       fullTitle: "SHOP SPHERE",
-      subtitle: "Full-Stack Shopping Experience — October 2025",
-      techStack: "HTML5, CSS3, JavaScript (ES6+), Node.js, Express.js, MongoDB",
+      subtitle: "Full-Stack E-Commerce Shopping Engine — October 2025",
+      techStack: "HTML5, CSS3, JavaScript (ES6+), Node.js, Express.js, MongoDB, REST APIs",
       points: [
-        { label: "Dynamic Product Catalog", desc: "Developed a robust backend to handle thousands of products with features like filtering, searching, and category management." },
-        { label: "Secure Authentication", desc: "Implemented JWT-based authentication to ensure secure user accounts, order history, and sensitive profile information." },
-        { label: "Shopping Flow", desc: "Crafted a seamless end-to-end shopping experience from product discovery to a persistent cart and order placement." }
+        { label: "Dynamic Product Catalog", desc: "Backend API handling multi-category product filtering, searching, price sorting, and inventory state." },
+        { label: "JWT Secure Authentication", desc: "Token-based user sign-up, login, order history tracking, and encrypted password storage." },
+        { label: "Seamless Checkout Workflow", desc: "Complete digital retail experience from product discovery to persistent cart management and order receipt generation." }
       ],
-      purpose: "Designed to demonstrate the integration of complex database schemas with a clean, user-friendly frontend for a complete digital retail experience.",
+      purpose: "Demonstrates production-ready database schema design, RESTful API architecture, and state management for scalable digital retail.",
       link: "#"
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === activeFilter);
 
   return (
     <section id="projects" className="section">
@@ -162,21 +207,40 @@ const Projects = () => {
           <h2 className="section-title">Featured <span className="highlight-amp">Projects</span></h2>
           <div className="heading-line-premium"></div>
         </div>
+
+        {/* Category Filter Pills */}
+        <div className="project-filter-pills">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`filter-pill ${activeFilter === cat ? 'active' : ''}`}
+              onClick={() => setActiveFilter(cat)}
+            >
+              {cat}
+              {activeFilter === cat && (
+                <motion.div 
+                  className="active-pill-bg"
+                  layoutId="activeFilterPill"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
         
         <motion.div 
-          className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          className="projects-grid-expanded"
+          layout
         >
-          {projects.map((project) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              onClick={() => setSelectedProject(project)} 
-            />
-          ))}
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                onClick={() => setSelectedProject(project)} 
+              />
+            ))}
+          </AnimatePresence>
         </motion.div>
       </motion.div>
 
@@ -184,13 +248,15 @@ const Projects = () => {
         {selectedProject && (
           <motion.div 
             className="project-modal-overlay-premium"
+            data-lenis-prevent="true"
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             onClick={() => setSelectedProject(null)}
           >
             <motion.div 
               className="project-modal-content-premium"
+              data-lenis-prevent="true"
               initial={{ scale: 0.9, y: 30, opacity: 0 }}
               animate={{ 
                 scale: 1, 
@@ -241,7 +307,7 @@ const Projects = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <h4 className="modal-section-title"><FiStar /> Key Features</h4>
+                    <h4 className="modal-section-title"><FiStar /> Key Workspaces & Modules</h4>
                     <div className="project-points-list-premium">
                       {selectedProject.points.map((point, i) => (
                         <motion.div 
@@ -260,7 +326,7 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    <h4 className="modal-section-title" style={{ marginTop: '30px' }}><FiInfo /> Project Purpose</h4>
+                    <h4 className="modal-section-title" style={{ marginTop: '30px' }}><FiInfo /> Project Overview & System Purpose</h4>
                     <div className="project-purpose-box-premium">
                       {selectedProject.purpose}
                     </div>

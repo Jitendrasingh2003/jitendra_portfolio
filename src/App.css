@@ -1,125 +1,65 @@
 .App {
   position: relative;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* Scroll Progress Bar */
+/* Top Scroll Progress Bar */
 .progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   background: var(--gradient-primary);
   transform-origin: 0%;
   z-index: 10000;
-  box-shadow: 0 0 15px rgba(0, 255, 170, 0.5);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* Custom Cursor */
-.custom-cursor {
+/* Precision Sleek Custom Neon Cursor Dot */
+.custom-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
-  background: #00ffaa;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: background 0.4s ease;
 }
 
-.cursor-follower {
+.custom-cursor-dot.hovered {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 15px var(--accent-secondary);
+}
+
+/* Ring Follower */
+.cursor-ring-follower {
   position: fixed;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #00ffaa;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent-color);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  opacity: 0.5;
+  opacity: 0.45;
+  transition: border-color 0.4s ease, opacity 0.3s ease;
 }
 
-/* Moving Mesh Background */
-.mesh-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: #000000;
-  overflow: hidden;
-}
-
-.mesh-circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
-  animation: move 15s infinite alternate;
-}
-
-.circle-1 {
-  width: 500px;
-  height: 500px;
-  background: #00ffaa;
-  top: -10%;
-  left: -10%;
-}
-
-.circle-2 {
-  width: 600px;
-  height: 600px;
-  background: #6366f1;
-  bottom: -10%;
-  right: -10%;
-  animation-delay: -5s;
-}
-
-.circle-3 {
-  width: 400px;
-  height: 400px;
-  background: #f43f5e;
-  top: 40%;
-  left: 50%;
-  animation-delay: -10s;
-}
-
-/* Theme Based Colors */
-.sky-theme .mesh-bg {
-  background: linear-gradient(180deg, #1a2a6c, #b21f1f, #fdbb2d);
-}
-
-.sky-theme .circle-1 { background: #ff7e5f; opacity: 0.3; }
-.sky-theme .circle-2 { background: #feb47b; opacity: 0.3; }
-.sky-theme .circle-3 { background: #fff; opacity: 0.2; }
-
-.sky-theme .custom-cursor { background: #ffcc00; }
-.sky-theme .cursor-follower { border-color: #ffcc00; }
-.sky-theme .progress-bar { background: linear-gradient(90deg, #ff7e5f, #feb47b); }
-
-@keyframes move {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(100px, 100px) scale(1.2); }
+.cursor-ring-follower.hovered {
+  border-color: var(--accent-secondary);
+  opacity: 0.8;
+  background: var(--gradient-glow);
 }
 
 @media (max-width: 768px) {
-  .custom-cursor, .cursor-follower {
+  .custom-cursor-dot, .cursor-ring-follower {
     display: none;
   }
-}
-
-.mouse-spotlight {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: screen;
 }

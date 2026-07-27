@@ -1,0 +1,131 @@
+.background-canvas-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: var(--bg-dark, #06080d);
+  transition: background-color 0.8s ease;
+}
+
+.bg-interactive-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Perspective Cyber-Grid Lines Overlay */
+.cyber-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.18;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+}
+
+.space .cyber-grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(0, 255, 170, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 170, 0.12) 1px, transparent 1px);
+}
+
+.nebula .cyber-grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(192, 132, 252, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(192, 132, 252, 0.14) 1px, transparent 1px);
+}
+
+.emerald .cyber-grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(52, 211, 153, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(52, 211, 153, 0.14) 1px, transparent 1px);
+}
+
+/* Traveling Scanline Beam */
+.cyber-scanline {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 170, 0.08), transparent);
+  animation: scanline 12s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.nebula .cyber-scanline {
+  background: linear-gradient(180deg, transparent, rgba(192, 132, 252, 0.1), transparent);
+}
+
+.emerald .cyber-scanline {
+  background: linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.1), transparent);
+}
+
+@keyframes scanline {
+  0% { top: -20%; }
+  100% { top: 120%; }
+}
+
+/* Ambient Floating Aurora Mesh Blobs */
+.ambient-aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  transition: all 1s ease;
+}
+
+.aurora-1 {
+  width: 55vw;
+  height: 55vw;
+  top: -15%;
+  left: -10%;
+  animation: float-aurora-1 22s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+  width: 50vw;
+  height: 50vw;
+  bottom: -15%;
+  right: -10%;
+  animation: float-aurora-2 26s ease-in-out infinite alternate;
+}
+
+/* Theme Variant Aurora Colors */
+.space .aurora-1 { background: radial-gradient(circle, #00ffaa 0%, #00d2ff 100%); }
+.space .aurora-2 { background: radial-gradient(circle, #6366f1 0%, #00ffaa 100%); }
+
+.nebula .aurora-1 { background: radial-gradient(circle, #7928ca 0%, #ff0080 100%); }
+.nebula .aurora-2 { background: radial-gradient(circle, #3b82f6 0%, #a855f7 100%); }
+
+.emerald .aurora-1 { background: radial-gradient(circle, #10b981 0%, #06b6d4 100%); }
+.emerald .aurora-2 { background: radial-gradient(circle, #059669 0%, #34d399 100%); }
+
+@keyframes float-aurora-1 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(8%, 12%) rotate(180deg) scale(1.15); }
+  100% { transform: translate(-5%, 8%) rotate(360deg) scale(0.95); }
+}
+
+@keyframes float-aurora-2 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(-10%, -8%) rotate(-180deg) scale(1.1); }
+  100% { transform: translate(6%, -12%) rotate(-360deg) scale(0.9); }
+}

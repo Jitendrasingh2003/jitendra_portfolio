@@ -11,11 +11,13 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import SocialDock from './components/SocialDock';
 import ThemeToggle from './components/ThemeToggle';
+import BackgroundCanvas from './components/BackgroundCanvas';
 import './App.css';
 
 function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [theme, setTheme] = useState('space'); // 'space' (dark) or 'sky' (vibrant)
+  const [cursorHovered, setCursorHovered] = useState(false);
+  const [theme, setTheme] = useState('space'); // 'space' | 'nebula' | 'emerald'
   const { scrollYProgress } = useScroll();
   
   const scaleX = useSpring(scrollYProgress, {
@@ -24,12 +26,16 @@ function App() {
     restDelta: 0.001
   });
 
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'space' ? 'sky' : 'space');
+  const cycleTheme = () => {
+    setTheme(prev => {
+      if (prev === 'space') return 'nebula';
+      if (prev === 'nebula') return 'emerald';
+      return 'space';
+    });
   };
 
   useEffect(() => {
-    // Initialize Lenis
+    // Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -51,6 +57,14 @@ function App() {
 
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
+
+      // Detect hover over interactive elements
+      const target = e.target;
+      if (target && (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button') || target.closest('.project-card') || target.closest('.bento-item-premium'))) {
+        setCursorHovered(true);
+      } else {
+        setCursorHovered(false);
+      }
     };
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -62,44 +76,35 @@ function App() {
 
   return (
     <div className={`App ${theme}-theme`}>
-      {/* Moving Mesh Background */}
-      <div className="mesh-bg">
-        <div className={`mesh-circle circle-1 ${theme}`}></div>
-        <div className={`mesh-circle circle-2 ${theme}`}></div>
-        <div className={`mesh-circle circle-3 ${theme}`}></div>
-      </div>
+      {/* Dynamic Interactive Background Engine */}
+      <BackgroundCanvas theme={theme} />
 
-      {/* Mouse Spotlight (Flashlight) Effect */}
+      {/* Sleek Magnetic Precision Custom Cursor */}
       <motion.div 
-        className="mouse-spotlight"
+        className={`custom-cursor-dot ${theme} ${cursorHovered ? 'hovered' : ''}`}
         animate={{
-          background: `radial-gradient(800px at ${mousePos.x}px ${mousePos.y}px, rgba(0, 255, 170, 0.12), transparent 80%)`
+          x: mousePos.x - (cursorHovered ? 8 : 4),
+          y: mousePos.y - (cursorHovered ? 8 : 4),
+          scale: cursorHovered ? 1.8 : 1
         }}
-      />
-
-      {/* Custom Glowing Cursor */}
-      <motion.div 
-        className={`custom-cursor ${theme}`}
-        animate={{
-          x: mousePos.x - 10,
-          y: mousePos.y - 10
-        }}
-        transition={{ type: 'spring', stiffness: 500, damping: 28, mass: 0.5 }}
+        transition={{ type: 'spring', stiffness: 700, damping: 35, mass: 0.1 }}
       />
       <motion.div 
-        className={`cursor-follower ${theme}`}
+        className={`cursor-ring-follower ${theme} ${cursorHovered ? 'hovered' : ''}`}
         animate={{
-          x: mousePos.x - 20,
-          y: mousePos.y - 20
+          x: mousePos.x - (cursorHovered ? 28 : 18),
+          y: mousePos.y - (cursorHovered ? 28 : 18),
+          width: cursorHovered ? 56 : 36,
+          height: cursorHovered ? 56 : 36
         }}
-        transition={{ type: 'spring', stiffness: 250, damping: 20, mass: 0.8 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.5 }}
       />
 
-      {/* Scroll Progress Bar */}
+      {/* Top Scroll Progress Bar */}
       <motion.div className="progress-bar" style={{ scaleX }} />
 
       <Navbar />
-      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      <ThemeToggle theme={theme} toggleTheme={cycleTheme} />
       
       <main>
         <Hero />

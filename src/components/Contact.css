@@ -1,4 +1,3 @@
-/* Contact.css premium update */
 .contact-container-premium {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,12 +9,12 @@
   position: relative;
   padding: 45px 40px;
   border-radius: 30px;
-  background: rgba(10, 25, 47, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -26,7 +25,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 255, 170, 0.08) 0%, rgba(0,0,0,0) 100%);
+  background: var(--gradient-glow);
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 0;
@@ -34,8 +33,8 @@
 }
 
 .contact-info-premium:hover, .contact-form-premium:hover {
-  border-color: rgba(0, 255, 170, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 255, 170, 0.2);
+  border-color: var(--border-card-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--accent-glow);
 }
 
 .contact-info-premium:hover .contact-card-glow, .contact-form-premium:hover .contact-card-glow {
@@ -52,14 +51,14 @@
 
 .contact-content-premium h3 {
   font-size: 2.2rem;
-  color: #e6f1ff;
+  color: var(--text-main);
   margin-bottom: 20px;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
 .contact-desc-premium {
-  color: #a8b2d1;
+  color: var(--text-muted);
   line-height: 1.7;
   font-size: 1.05rem;
   margin-bottom: 40px;
@@ -82,20 +81,20 @@
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: rgba(0, 255, 170, 0.1);
-  color: #00ffaa;
+  background: var(--bg-card-hover);
+  color: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  border: 1px solid var(--border-card-hover);
   transition: all 0.4s ease;
 }
 
 .info-item-premium:hover .info-icon-premium {
-  background: rgba(0, 255, 170, 0.2);
+  background: var(--gradient-glow);
   transform: rotate(10deg) scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .info-text-wrapper {
@@ -105,7 +104,7 @@
 }
 
 .info-item-premium h4 {
-  color: #8892b0;
+  color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -113,7 +112,7 @@
 }
 
 .info-item-premium a, .info-item-premium p {
-  color: #e6f1ff;
+  color: var(--text-main);
   font-size: 1.15rem;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -121,7 +120,7 @@
 }
 
 .info-item-premium a:hover {
-  color: #00ffaa;
+  color: var(--accent-color);
 }
 
 .social-links-premium {
@@ -134,21 +133,21 @@
   width: 55px;
   height: 55px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #e6f1ff;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--text-main);
+  transition: all 0.3s ease;
 }
 
 .social-icon-premium:hover {
-  background: rgba(0, 255, 170, 0.1);
-  color: #00ffaa;
-  border-color: rgba(0, 255, 170, 0.3);
-  box-shadow: 0 10px 20px rgba(0, 255, 170, 0.15);
+  background: var(--gradient-glow);
+  color: var(--accent-color);
+  border-color: var(--border-card-hover);
+  box-shadow: 0 10px 20px var(--accent-glow);
 }
 
 /* Form Styles Premium */
@@ -159,7 +158,7 @@
 .form-group-premium label {
   display: block;
   margin-bottom: 10px;
-  color: #a8b2d1;
+  color: var(--text-muted);
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -168,9 +167,9 @@
   width: 100%;
   padding: 16px 20px;
   border-radius: 14px;
-  background: rgba(2, 12, 27, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e6f1ff;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
   font-size: 1.05rem;
   transition: all 0.3s ease;
   font-family: inherit;
@@ -178,22 +177,21 @@
 
 .form-group-premium input:focus, .form-group-premium textarea:focus {
   outline: none;
-  border-color: #00ffaa;
-  background: rgba(2, 12, 27, 0.9);
-  box-shadow: 0 0 0 4px rgba(0, 255, 170, 0.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
 .form-group-premium input::placeholder, .form-group-premium textarea::placeholder {
-  color: rgba(136, 146, 176, 0.5);
+  color: var(--text-dim);
 }
 
 .submit-btn-premium {
   width: 100%;
   padding: 18px;
   border-radius: 14px;
-  background: rgba(0, 255, 170, 0.1);
-  color: #00ffaa;
-  border: 1px solid rgba(0, 255, 170, 0.5);
+  background: var(--gradient-glow);
+  color: var(--accent-color);
+  border: 1px solid var(--border-card-hover);
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
@@ -202,21 +200,21 @@
 }
 
 .submit-btn-premium:hover {
-  background: #00ffaa;
-  color: #0a192f;
-  box-shadow: 0 10px 25px rgba(0, 255, 170, 0.4);
+  background: var(--gradient-primary);
+  color: #050b14;
+  box-shadow: 0 10px 25px var(--accent-glow);
 }
 
 .form-status-premium {
   margin-top: 20px;
   text-align: center;
   font-weight: 600;
-  color: #00ffaa;
+  color: var(--accent-color);
   animation: fadeIn 0.3s ease;
-  background: rgba(0, 255, 170, 0.1);
+  background: var(--bg-card);
   padding: 12px;
   border-radius: 10px;
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  border: 1px solid var(--border-card);
 }
 
 @keyframes fadeIn {
@@ -228,8 +226,8 @@
   text-align: center;
   margin-top: 100px;
   padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: #8892b0;
+  border-top: 1px solid var(--border-card);
+  color: var(--text-muted);
   font-size: 0.95rem;
   letter-spacing: 0.5px;
 }

@@ -9,12 +9,12 @@
   position: relative;
   padding: 40px;
   border-radius: 24px;
-  background: rgba(10, 25, 47, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -25,7 +25,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 255, 170, 0.05) 0%, rgba(0,0,0,0) 100%);
+  background: var(--gradient-glow);
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 0;
@@ -33,8 +33,8 @@
 }
 
 .exp-card-premium:hover {
-  border-color: rgba(0, 255, 170, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 255, 170, 0.15);
+  border-color: var(--border-card-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--accent-glow);
   transform: translateY(-5px);
 }
 
@@ -52,29 +52,29 @@
   align-items: flex-start;
   gap: 25px;
   margin-bottom: 35px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-card);
   padding-bottom: 30px;
 }
 
 .exp-icon-wrapper-premium {
   width: 70px;
   height: 70px;
-  background: rgba(0, 255, 170, 0.1);
-  color: #00ffaa;
+  background: var(--bg-card-hover);
+  color: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
   font-size: 2rem;
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  border: 1px solid var(--border-card-hover);
   transition: all 0.4s ease;
   flex-shrink: 0;
 }
 
 .exp-card-premium:hover .exp-icon-wrapper-premium {
-  background: rgba(0, 255, 170, 0.2);
+  background: var(--gradient-glow);
   transform: rotate(-10deg) scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .exp-header-info {
@@ -94,9 +94,16 @@
 
 .exp-title-row h3 {
   font-size: 1.8rem;
-  color: #e6f1ff;
+  color: var(--text-main);
   font-weight: 800;
   letter-spacing: -0.5px;
+}
+
+.exp-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .exp-date-badge-premium {
@@ -104,12 +111,12 @@
   align-items: center;
   gap: 8px;
   font-size: 0.9rem;
-  color: #8892b0;
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  background: var(--bg-card);
   padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  font-family: 'Fira Code', monospace;
+  border: 1px solid var(--border-card);
+  font-family: var(--font-mono);
 }
 
 .exp-company-premium {
@@ -117,8 +124,16 @@
   align-items: center;
   gap: 8px;
   font-size: 1.1rem;
-  color: #00ffaa;
+  color: var(--accent-color);
   font-weight: 600;
+}
+
+.exp-location-premium {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
 }
 
 .exp-details-container {
@@ -141,15 +156,15 @@
 }
 
 .bullet-icon {
-  color: #00ffaa;
+  color: var(--accent-color);
   font-size: 1.1rem;
   margin-top: 3px;
   flex-shrink: 0;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .bullet-text {
-  color: #a8b2d1;
+  color: var(--text-muted);
   line-height: 1.7;
   font-size: 1.05rem;
 }
@@ -161,7 +176,7 @@
     text-align: center;
   }
   
-  .exp-title-row {
+  .exp-title-row, .exp-meta-row {
     flex-direction: column;
     justify-content: center;
   }

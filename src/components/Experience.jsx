@@ -1,22 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaBuilding, FaCheckCircle } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt, FaBuilding, FaCheckCircle, FaMapMarkerAlt } from 'react-icons/fa';
+import QATestDashboard from './QATestDashboard';
 import './Experience.css';
 
 const Experience = () => {
   const experiences = [
     {
-      title: "QA Intern",
-      company: "i4Consulting Pvt. Ltd.",
-      date: "April 2026 - Present",
+      title: "Quality Assurance Automation Intern",
+      company: "NOI Technologies LLC",
+      date: "May 2026 - Present",
+      location: "Jaipur, Rajasthan, India (On-site)",
       description: [
-        "Performed manual testing of web applications including functional, regression, smoke, and sanity testing.",
-        "Wrote detailed test cases, test plans, and test scenarios from functional specifications and user stories.",
-        "Executed end-to-end functional testing of web modules, verifying UI behavior, form validations, and data.",
-        "Developed basic automation scripts for login flows, form submissions, and navigation.",
-        "Performed API testing using Postman — validated REST APIs for correct status codes.",
-        "Identified, documented, and tracked defects in JIRA with clear steps to reproduce.",
-        "Participated in Agile/Scrum ceremonies including daily standups and sprint planning."
+        "Working on Automation Testing for web applications to ensure software quality, performance, and reliability.",
+        "Creating and executing automated test cases for functional, integration, and regression testing suites.",
+        "Hands-on API validation using Postman, test automation frameworks, and QA release workflows.",
+        "Identifying, documenting, and tracking bugs via JIRA to optimize application stability.",
+        "Working with Linux/Ubuntu terminal environment, shell scripts, and browser DevTools.",
+        "Collaborating with cross-functional development teams during Agile/Scrum sprint cycles."
       ]
     }
   ];
@@ -54,9 +55,14 @@ const Experience = () => {
                         <FaCalendarAlt /> {exp.date}
                       </div>
                     </div>
-                    <h4 className="exp-company-premium">
-                      <FaBuilding /> {exp.company}
-                    </h4>
+                    <div className="exp-meta-row">
+                      <h4 className="exp-company-premium">
+                        <FaBuilding /> {exp.company}
+                      </h4>
+                      <span className="exp-location-premium">
+                        <FaMapMarkerAlt /> {exp.location}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 
@@ -68,7 +74,7 @@ const Experience = () => {
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 + (i * 0.1) }}
+                        transition={{ delay: 0.15 + (i * 0.08) }}
                       >
                         <span className="bullet-icon"><FaCheckCircle /></span>
                         <span className="bullet-text">{item}</span>
@@ -79,6 +85,9 @@ const Experience = () => {
               </div>
             </motion.div>
           ))}
+
+          {/* Interactive Live QA Automation Testing Terminal */}
+          <QATestDashboard />
         </div>
       </motion.div>
     </section>
