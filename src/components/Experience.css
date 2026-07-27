@@ -1,96 +1,180 @@
-.experience-container {
-  margin-top: 20px;
-}
-
-.exp-card {
-  padding: 40px;
-  border-radius: 20px;
+.experience-container-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   position: relative;
+}
+
+.exp-card-premium {
+  position: relative;
+  padding: 40px;
+  border-radius: 24px;
+  background: rgba(10, 25, 47, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
-.exp-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.exp-card::before {
+.exp-card-glow {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 100%;
   height: 100%;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, rgba(0, 255, 170, 0.05) 0%, rgba(0,0,0,0) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.exp-header {
+.exp-card-premium:hover {
+  border-color: rgba(0, 255, 170, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(0, 255, 170, 0.15);
+  transform: translateY(-5px);
+}
+
+.exp-card-premium:hover .exp-card-glow {
+  opacity: 1;
+}
+
+.exp-content-premium {
+  position: relative;
+  z-index: 1;
+}
+
+.exp-header-premium {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 25px;
+  gap: 25px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 30px;
 }
 
-.exp-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--accent-color);
+.exp-icon-wrapper-premium {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 255, 170, 0.1);
+  color: #00ffaa;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  border-radius: 20px;
+  font-size: 2rem;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  transition: all 0.4s ease;
+  flex-shrink: 0;
 }
 
-.exp-title {
+.exp-card-premium:hover .exp-icon-wrapper-premium {
+  background: rgba(0, 255, 170, 0.2);
+  transform: rotate(-10deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+}
+
+.exp-header-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.exp-title h3 {
-  font-size: 1.5rem;
-  color: var(--text-main);
-  margin-bottom: 5px;
+.exp-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.exp-title h4 {
-  font-size: 1.1rem;
-  color: var(--accent-color);
-  font-weight: 500;
+.exp-title-row h3 {
+  font-size: 1.8rem;
+  color: #e6f1ff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-.exp-date {
-  background: rgba(255, 255, 255, 0.1);
+.exp-date-badge-premium {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #8892b0;
+  background: rgba(255, 255, 255, 0.03);
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Fira Code', monospace;
 }
 
-.exp-details {
-  padding-left: 20px;
+.exp-company-premium {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: #00ffaa;
+  font-weight: 600;
 }
 
-.exp-details li {
-  margin-bottom: 12px;
-  color: #d1d5db;
-  position: relative;
-  line-height: 1.6;
+.exp-details-container {
+  padding-left: 10px;
 }
 
-.exp-details li::before {
-  content: '▹';
-  position: absolute;
-  left: -20px;
-  color: var(--accent-color);
+.exp-details-premium {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exp-details-premium li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.bullet-icon {
+  color: #00ffaa;
+  font-size: 1.1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.bullet-text {
+  color: #a8b2d1;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 @media (max-width: 768px) {
-  .exp-header {
+  .exp-header-premium {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  .exp-date {
-    align-self: flex-start;
+  
+  .exp-title-row {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .exp-company-premium {
+    justify-content: center;
+  }
+  
+  .exp-card-premium {
+    padding: 30px 20px;
+  }
+  
+  .bullet-text {
+    font-size: 0.95rem;
   }
 }

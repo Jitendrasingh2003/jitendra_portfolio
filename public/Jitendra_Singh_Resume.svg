@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f" />
+      <stop offset="100%" stop-color="#020c1b" />
+    </linearGradient>
+    <linearGradient id="rAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffaa" />
+      <stop offset="100%" stop-color="#00d2ff" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1100" fill="url(#rBg)" rx="12" />
+  <rect x="20" y="20" width="760" height="1060" fill="none" stroke="rgba(0, 255, 170, 0.2)" stroke-width="2" rx="8" />
+
+  <!-- Header -->
+  <text x="50" y="80" font-family="'Outfit', sans-serif" font-size="34" font-weight="800" fill="#ffffff">JITENDRA SINGH</text>
+  <text x="50" y="110" font-family="'Outfit', sans-serif" font-size="18" font-weight="600" fill="#00ffaa" letter-spacing="2">FULL STACK DEVELOPER &amp; QA ENGINEER</text>
+
+  <text x="750" y="70" text-anchor="end" font-family="'Outfit', sans-serif" font-size="13" fill="#8892b0">jiteandra318@gmail.com</text>
+  <text x="750" y="90" text-anchor="end" font-family="'Outfit', sans-serif" font-size="13" fill="#8892b0">+91-9636943318</text>
+  <text x="750" y="110" text-anchor="end" font-family="'Outfit', sans-serif" font-size="13" fill="#8892b0">Jaipur, Rajasthan</text>
+
+  <line x1="50" y1="130" x2="750" y2="130" stroke="url(#rAccent)" stroke-width="2" />
+
+  <!-- Executive Summary -->
+  <text x="50" y="165" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">PROFILE SUMMARY</text>
+  <text x="50" y="195" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Dedicated Full Stack Developer and QA Engineer with expertise in building high-performing web applications</text>
+  <text x="50" y="215" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">and executing end-to-end software quality testing. Proficient in Next.js, React, Node.js, Selenium, and AI tools.</text>
+
+  <!-- Work Experience -->
+  <text x="50" y="260" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">WORK EXPERIENCE</text>
+  <text x="50" y="290" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">QA Intern — i4Consulting Pvt. Ltd.</text>
+  <text x="750" y="290" text-anchor="end" font-family="'Fira Code', monospace" font-size="13" fill="#8892b0">April 2026 – Present</text>
+  
+  <text x="65" y="315" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Performed manual &amp; automated testing for web applications including functional, regression &amp; smoke tests.</text>
+  <text x="65" y="335" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Executed REST API testing using Postman, verifying status codes, payloads, and latency.</text>
+  <text x="65" y="355" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Documented &amp; tracked software bugs in JIRA with precise steps to reproduce.</text>
+
+  <!-- Projects -->
+  <text x="50" y="405" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">KEY PROJECTS</text>
+  
+  <text x="50" y="435" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">1. AI Healthcare Analytics Dashboard</text>
+  <text x="750" y="435" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">Next.js 16 | React 19 | Claude API | Supabase</text>
+  <text x="65" y="455" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Integrated Claude API for automatic clinical report parsing &amp; medical query handling.</text>
+  <text x="65" y="475" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Built full-stack OPD queue, bed management, and real-time analytics dashboard with Prisma ORM v7.</text>
+
+  <text x="50" y="515" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">2. AI Resume Builder (Resume Genie)</text>
+  <text x="750" y="515" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">React.js | OpenAI API | Node.js | MongoDB</text>
+  <text x="65" y="535" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Developed ATS-friendly resume generator with real-time AI content suggestions and PDF output.</text>
+
+  <!-- Education -->
+  <text x="50" y="585" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">EDUCATION</text>
+  <text x="50" y="615" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Bachelor of Technology (B.Tech) in Computer Science Engineering</text>
+
+  <!-- Technical Skills -->
+  <text x="50" y="665" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">TECHNICAL SKILLS</text>
+  <text x="50" y="695" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Languages &amp; Core:</text>
+  <text x="200" y="695" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">JavaScript, TypeScript, Python, C, SQL, HTML5, CSS3</text>
+
+  <text x="50" y="720" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Frameworks &amp; DB:</text>
+  <text x="200" y="720" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">React.js, Next.js, Node.js, Express, MongoDB, PostgreSQL, Tailwind CSS</text>
+
+  <text x="50" y="745" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">QA &amp; Tools:</text>
+  <text x="200" y="745" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Selenium WebDriver, Postman API Testing, JIRA, Git, VS Code, TestNG</text>
+
+  <!-- Certifications -->
+  <text x="50" y="795" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">CERTIFICATIONS &amp; CREDENTIALS</text>
+  <text x="65" y="825" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• GenAI Powered Data Analytics Job Simulation — Forage / TATA (June 2025)</text>
+  <text x="65" y="845" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Software Testing with Generative AI — Simplilearn / SkillUp (May 2026)</text>
+</svg>

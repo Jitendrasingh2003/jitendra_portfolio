@@ -7,17 +7,14 @@ const Terminal = () => {
   const codeLines = [
     `const developer = {
   name: 'Jitendra Singh',
-  role: 'Full Stack Developer',
-  skills: ['React', 'Node.js', 'QA Testing'],
-  passion: 'Building scalable web apps',
-  isAwesome: true
+  role: 'Full Stack Developer & QA Engineer',
+  location: 'Jaipur, Rajasthan',
+  skills: ['Next.js 16', 'React 19', 'TypeScript', 'Node.js', 'Selenium', 'Postman', 'Claude API'],
+  passion: 'Building ultra-scalable web apps & flaw-free software',
+  status: 'Ready to collaborate & build next-gen web products!'
 };
 
-function hireMe() {
-  return developer.isAwesome ? "Let's work together!" : "Still learning!";
-}
-
-console.log(hireMe());`
+console.log(\`Developer \${developer.name} ready.\`);`
   ];
 
   return (

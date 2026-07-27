@@ -1,0 +1,68 @@
+.dock-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.dock-main {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.dock-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  color: #ccd6f6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dock-icon {
+  font-size: 1.5rem;
+}
+
+.dock-icon-wrapper:hover {
+  color: #00ffaa;
+}
+
+.dock-label {
+  position: absolute;
+  top: -45px;
+  background: rgba(0, 255, 170, 0.2);
+  color: #00ffaa;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dock-icon-wrapper:hover .dock-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .dock-container {
+    display: none; /* Hide dock on mobile for better UX */
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBriefcase } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt, FaBuilding, FaCheckCircle } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
@@ -26,30 +26,58 @@ const Experience = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">Experience</h2>
+        <div className="section-heading-container-premium">
+          <h2 className="section-title">Professional <span className="highlight-amp">Experience</span></h2>
+          <div className="heading-line-premium"></div>
+        </div>
         
-        <div className="experience-container">
+        <div className="experience-container-premium">
           {experiences.map((exp, index) => (
-            <div key={index} className="exp-card glass">
-              <div className="exp-header">
-                <div className="exp-icon">
-                  <FaBriefcase />
+            <motion.div 
+              key={index} 
+              className="exp-card-premium"
+              whileHover={{ y: -5 }}
+            >
+              <div className="exp-card-glow"></div>
+              <div className="exp-content-premium">
+                <div className="exp-header-premium">
+                  <div className="exp-icon-wrapper-premium">
+                    <FaBriefcase />
+                  </div>
+                  <div className="exp-header-info">
+                    <div className="exp-title-row">
+                      <h3>{exp.title}</h3>
+                      <div className="exp-date-badge-premium">
+                        <FaCalendarAlt /> {exp.date}
+                      </div>
+                    </div>
+                    <h4 className="exp-company-premium">
+                      <FaBuilding /> {exp.company}
+                    </h4>
+                  </div>
                 </div>
-                <div className="exp-title">
-                  <h3>{exp.title}</h3>
-                  <h4>{exp.company}</h4>
+                
+                <div className="exp-details-container">
+                  <ul className="exp-details-premium">
+                    {exp.description.map((item, i) => (
+                      <motion.li 
+                        key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + (i * 0.1) }}
+                      >
+                        <span className="bullet-icon"><FaCheckCircle /></span>
+                        <span className="bullet-text">{item}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="exp-date">{exp.date}</div>
               </div>
-              <ul className="exp-details">
-                {exp.description.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>

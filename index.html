@@ -8,6 +8,17 @@
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Liquid Distortion Filter -->
+    <svg style="display: none;">
+      <filter id="liquid">
+        <feTurbulence baseFrequency="0.015" numOctaves="3" result="noise" seed="0">
+          <animate attributeName="baseFrequency" dur="10s" values="0.015;0.025;0.015" repeatCount="indefinite" />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" />
+      </filter>
+    </svg>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
