@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaCalendarAlt, FaBuilding, FaCheckCircle, FaMapMarkerAlt } from 'react-icons/fa';
-import QATestDashboard from './QATestDashboard';
 import './Experience.css';
 
 const Experience = () => {
@@ -85,9 +84,6 @@ const Experience = () => {
               </div>
             </motion.div>
           ))}
-
-          {/* Interactive Live QA Automation Testing Terminal */}
-          <QATestDashboard />
         </div>
       </motion.div>
     </section>
