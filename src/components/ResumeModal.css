@@ -1,0 +1,227 @@
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 8, 15, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.resume-modal-container {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  width: 100%;
+  max-width: 950px;
+  height: calc(100vh - 70px);
+  border-radius: 24px;
+  position: relative;
+  border: 1px solid var(--border-card-hover);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 40px var(--accent-glow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-card);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.resume-header-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.resume-icon-badge {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-card-hover);
+  border-radius: 14px;
+  color: var(--accent-color);
+  font-size: 1.35rem;
+}
+
+.resume-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 2px;
+}
+
+.resume-modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.resume-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.resume-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.resume-control-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.resume-control-btn:hover {
+  color: var(--accent-color);
+  background: var(--bg-card-hover);
+}
+
+.zoom-level-text {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 12px;
+  background: var(--gradient-primary);
+  color: #050b14;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+.resume-tab-btn, .resume-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.resume-tab-btn:hover, .resume-close-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  color: var(--text-main);
+}
+
+.resume-close-btn:hover {
+  background: rgba(255, 99, 71, 0.15);
+  color: #ff6347;
+  border-color: rgba(255, 99, 71, 0.4);
+}
+
+.resume-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 30px 20px;
+  background: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.resume-modal-body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.resume-modal-body::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+.resume-modal-body::-webkit-scrollbar-thumb {
+  background: var(--border-card-hover);
+  border-radius: 10px;
+}
+.resume-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+.resume-svg-container {
+  width: 100%;
+  max-width: 820px;
+  min-width: 650px;
+  background: #020c1b;
+  border-radius: 16px;
+  border: 1px solid var(--border-card-hover);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  padding: 12px;
+  margin: 0 auto;
+}
+
+.resume-svg-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .resume-modal-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .resume-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .resume-svg-container {
+    min-width: 100%;
+  }
+}

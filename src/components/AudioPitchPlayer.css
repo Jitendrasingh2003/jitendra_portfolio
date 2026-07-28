@@ -1,0 +1,99 @@
+.audio-pitch-card {
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.audio-pitch-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 22px;
+  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-pitch-toggle-btn:hover {
+  border-color: var(--border-card-hover);
+  background: var(--bg-card-hover);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.audio-pitch-toggle-btn.playing {
+  border-color: var(--accent-color);
+  background: rgba(0, 255, 170, 0.06);
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.audio-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--gradient-glow);
+  border: 1px solid var(--border-card-hover);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.audio-pitch-toggle-btn:hover .audio-icon-wrapper {
+  background: var(--gradient-primary);
+  color: #050b14;
+}
+
+.play-icon {
+  margin-left: 2px;
+}
+
+.audio-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.audio-btn-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  font-family: var(--font-heading);
+}
+
+.audio-btn-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Animated Wave Equalizer Visualizer */
+.audio-wave-visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 24px;
+  padding: 0 4px;
+}
+
+.wave-bar {
+  width: 4px;
+  background: var(--border-card-hover);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.audio-wave-visualizer.active .wave-bar {
+  background: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}

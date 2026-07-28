@@ -38,12 +38,10 @@ const Skills = () => {
       description: "Building Ultra-Fast, Responsive & Accessible Modern Web UIs",
       skills: [
         { name: "React 19 / React.js", level: "Expert", tag: "Core UI" },
-        { name: "Next.js 16 (App Router)", level: "Advanced", tag: "SSR & Static" },
         { name: "TypeScript", level: "Advanced", tag: "Type Safety" },
         { name: "JavaScript (ES6+)", level: "Expert", tag: "Logic & Async" },
         { name: "Tailwind CSS v4", level: "Expert", tag: "Utility Styling" },
-        { name: "HTML5 & CSS3", level: "Expert", tag: "Semantic Web" },
-        { name: "Bootstrap 5", level: "Proficient", tag: "Responsive" }
+        { name: "HTML5 & CSS3", level: "Expert", tag: "Semantic Web" }
       ]
     },
     {

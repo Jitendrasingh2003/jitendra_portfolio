@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1250" width="100%" height="100%">
   <defs>
     <linearGradient id="rBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a192f" />
@@ -10,8 +10,8 @@
     </linearGradient>
   </defs>
 
-  <rect width="800" height="1100" fill="url(#rBg)" rx="12" />
-  <rect x="20" y="20" width="760" height="1060" fill="none" stroke="rgba(0, 255, 170, 0.2)" stroke-width="2" rx="8" />
+  <rect width="800" height="1250" fill="url(#rBg)" rx="12" />
+  <rect x="20" y="20" width="760" height="1210" fill="none" stroke="rgba(0, 255, 170, 0.2)" stroke-width="2" rx="8" />
 
   <!-- Header -->
   <text x="50" y="80" font-family="'Outfit', sans-serif" font-size="34" font-weight="800" fill="#ffffff">JITENDRA SINGH</text>
@@ -25,8 +25,8 @@
 
   <!-- Executive Summary -->
   <text x="50" y="165" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">PROFILE SUMMARY</text>
-  <text x="50" y="195" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Dedicated Full Stack Developer and QA Engineer with expertise in building high-performing web applications</text>
-  <text x="50" y="215" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">and executing end-to-end software quality testing. Proficient in Next.js, React, Node.js, Selenium, and AI tools.</text>
+  <text x="50" y="195" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Dedicated Full Stack Developer and QA Automation Specialist with expertise in building high-performing web applications</text>
+  <text x="50" y="215" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">and executing end-to-end software quality testing. Proficient in React.js, Node.js, Express, MySQL, Selenium, Postman &amp; AI Integrations.</text>
 
   <!-- Work Experience -->
   <text x="50" y="260" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">WORK EXPERIENCE</text>
@@ -38,34 +38,46 @@
   <text x="65" y="355" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Documented &amp; tracked software bugs in JIRA with precise steps to reproduce.</text>
 
   <!-- Projects -->
-  <text x="50" y="405" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">KEY PROJECTS</text>
+  <text x="50" y="405" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">KEY FEATURED PROJECTS</text>
   
-  <text x="50" y="435" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">1. AI Healthcare Analytics Dashboard</text>
-  <text x="750" y="435" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">Next.js 16 | React 19 | Claude API | Supabase</text>
-  <text x="65" y="455" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Integrated Claude API for automatic clinical report parsing &amp; medical query handling.</text>
-  <text x="65" y="475" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Built full-stack OPD queue, bed management, and real-time analytics dashboard with Prisma ORM v7.</text>
+  <!-- Project 1: SmartShip -->
+  <text x="50" y="435" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">1. SmartShip — Enterprise Logistics &amp; Fleet Management Platform</text>
+  <text x="750" y="435" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">React | Node.js | MySQL | Socket.io | Leaflet</text>
+  <text x="65" y="458" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Built role-based logistics system for Customer booking, Staff carrier delivery OTP verification, and Admin revenue desk.</text>
+  <text x="65" y="478" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Implemented Socket.io real-time tracking telemetry, automated PDFKit commercial invoice generation, and Razorpay simulation.</text>
 
-  <text x="50" y="515" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">2. AI Resume Builder (Resume Genie)</text>
-  <text x="750" y="515" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">React.js | OpenAI API | Node.js | MongoDB</text>
-  <text x="65" y="535" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Developed ATS-friendly resume generator with real-time AI content suggestions and PDF output.</text>
+  <!-- Project 2: Healthcare -->
+  <text x="50" y="520" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">2. Hospital Management &amp; AI Clinical Support System</text>
+  <text x="750" y="520" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">React 19 | Gemini 3.1 AI | Prisma v7 | Supabase</text>
+  <text x="65" y="543" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Integrated Google Gemini 3.1 AI for differential diagnosis generation, Red Flag alerts &amp; Rx Drug Interaction Matrix.</text>
+  <text x="65" y="563" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Architected multi-role portals for Doctors, Receptionists, Pharmacists, Nurses, and OT availability management.</text>
+
+  <!-- Project 3: AI Resume Builder -->
+  <text x="50" y="605" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">3. AI Resume Builder &amp; ATS Suite (Resume Genie)</text>
+  <text x="750" y="605" text-anchor="end" font-family="'Fira Code', monospace" font-size="12" fill="#00ffaa">React.js | OpenAI API | Node.js | MongoDB</text>
+  <text x="65" y="628" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Developed ATS-friendly resume generator with real-time AI content suggestions and dynamic client-side PDF export.</text>
 
   <!-- Education -->
-  <text x="50" y="585" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">EDUCATION</text>
-  <text x="50" y="615" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Bachelor of Technology (B.Tech) in Computer Science Engineering</text>
+  <text x="50" y="680" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">EDUCATION</text>
+  <text x="50" y="710" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Bachelor of Technology (B.Tech) in Computer Science Engineering</text>
+  <text x="50" y="730" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Rajasthan Technical University (RTU) — 2021 to 2025</text>
 
   <!-- Technical Skills -->
-  <text x="50" y="665" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">TECHNICAL SKILLS</text>
-  <text x="50" y="695" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Languages &amp; Core:</text>
-  <text x="200" y="695" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">JavaScript, TypeScript, Python, C, SQL, HTML5, CSS3</text>
+  <text x="50" y="780" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">TECHNICAL SKILLS</text>
+  <text x="50" y="810" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Languages &amp; Core:</text>
+  <text x="200" y="810" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">JavaScript (ES6+), TypeScript, Python, C, SQL, HTML5, CSS3</text>
 
-  <text x="50" y="720" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Frameworks &amp; DB:</text>
-  <text x="200" y="720" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">React.js, Next.js, Node.js, Express, MongoDB, PostgreSQL, Tailwind CSS</text>
+  <text x="50" y="835" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Frameworks &amp; DB:</text>
+  <text x="200" y="835" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">React 19, React.js, Node.js, Express.js, MySQL, PostgreSQL, Supabase, Tailwind CSS</text>
 
-  <text x="50" y="745" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">QA &amp; Tools:</text>
-  <text x="200" y="745" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Selenium WebDriver, Postman API Testing, JIRA, Git, VS Code, TestNG</text>
+  <text x="50" y="860" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">QA &amp; Automation:</text>
+  <text x="200" y="860" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Selenium WebDriver, Postman API Testing, JIRA, Cypress, Chrome DevTools, Agile/Scrum</text>
+
+  <text x="50" y="885" font-family="'Outfit', sans-serif" font-size="13" font-weight="600" fill="#ffffff">AI &amp; Developer Tools:</text>
+  <text x="200" y="885" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">Google Gemini API, OpenAI GPT-4o API, Claude API, Git, GitHub, GitLab, VS Code</text>
 
   <!-- Certifications -->
-  <text x="50" y="795" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">CERTIFICATIONS &amp; CREDENTIALS</text>
-  <text x="65" y="825" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• GenAI Powered Data Analytics Job Simulation — Forage / TATA (June 2025)</text>
-  <text x="65" y="845" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Software Testing with Generative AI — Simplilearn / SkillUp (May 2026)</text>
+  <text x="50" y="935" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#00ffaa" letter-spacing="1">CERTIFICATIONS &amp; CREDENTIALS</text>
+  <text x="65" y="965" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• GenAI Powered Data Analytics Job Simulation — Forage / TATA (June 2025)</text>
+  <text x="65" y="985" font-family="'Outfit', sans-serif" font-size="13" fill="#a8b2d1">• Software Testing with Generative AI — Simplilearn / SkillUp (May 2026)</text>
 </svg>

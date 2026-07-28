@@ -4,6 +4,7 @@ import { FiDownload, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 import coder3d from '../assets/coder3d.gif?v=2';
 import { Typewriter } from 'react-simple-typewriter';
 import Magnetic from './Magnetic';
+import AudioPitchPlayer from './AudioPitchPlayer';
 import './Hero.css';
 
 const Hero = () => {
@@ -38,7 +39,7 @@ const Hero = () => {
             <span className="static-text">Architecting </span>
             <span className="highlight-premium">
               <Typewriter
-                words={[' Automated QA Test Suites', ' Next.js 16 Web Apps', ' AI-Driven Products', ' Selenium & Postman Workflows']}
+                words={[' Automated QA Test Suites', ' Full Stack Web Apps', ' AI-Driven Products', ' Selenium & Postman Workflows']}
                 loop={0}
                 cursor
                 cursorStyle='|'
@@ -50,14 +51,17 @@ const Hero = () => {
           </h2>
           
           <p className="description-premium">
-            Quality Assurance Automation Specialist & Full Stack Software Engineer crafting high-performance, fault-tolerant web applications. Focused on automated E2E testing, Selenium WebDriver, Postman API validation, Next.js 16, and AI API integrations.
+            Quality Assurance Automation Specialist & Full Stack Software Engineer crafting high-performance, fault-tolerant web applications. Focused on automated E2E testing, Selenium WebDriver, Postman API validation, React 19, and AI API integrations.
           </p>
 
           <div className="hero-highlights-pills">
             <span className="highlight-pill"><FiCheckCircle /> QA & Automation Specialist</span>
-            <span className="highlight-pill"><FiCheckCircle /> Next.js 16 & React 19</span>
+            <span className="highlight-pill"><FiCheckCircle /> React 19 & Node.js</span>
             <span className="highlight-pill"><FiCheckCircle /> Python & TypeScript</span>
           </div>
+
+          {/* Interactive AI Voice Elevator Pitch Player */}
+          <AudioPitchPlayer />
           
           <div className="hero-buttons-premium">
             <Magnetic>
