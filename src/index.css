@@ -215,7 +215,7 @@ ul {
 
 @media (max-width: 768px) {
   .section {
-    padding: 45px 5% 20px 5%;
+    padding: 35px 5% 15px 5%;
     min-height: auto;
   }
   .section-title {
@@ -225,7 +225,7 @@ ul {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .heading-line-premium {
     width: 100%;
@@ -235,16 +235,32 @@ ul {
     padding-bottom: 10px;
   }
   #experience {
-    padding-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  #projects {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  #skills {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  #certifications {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  #contact {
+    padding-top: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 35px 4% 15px 4%;
+    padding: 25px 4% 10px 4%;
   }
   .section-heading-container-premium {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
   }
   .section-title {
     font-size: 1.8rem;
@@ -260,7 +276,23 @@ ul {
     padding-bottom: 5px;
   }
   #experience {
-    padding-top: 15px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+  }
+  #projects {
+    padding-top: 12px;
+    padding-bottom: 5px;
+  }
+  #skills {
+    padding-top: 12px;
+    padding-bottom: 5px;
+  }
+  #certifications {
+    padding-top: 12px;
+    padding-bottom: 5px;
+  }
+  #contact {
+    padding-top: 12px;
   }
 }
 
