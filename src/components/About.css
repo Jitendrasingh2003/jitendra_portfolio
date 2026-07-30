@@ -292,3 +292,24 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .bento-item-premium {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+  .main-intro-premium h3 {
+    font-size: 1.45rem;
+  }
+  .bio-paragraph {
+    font-size: 0.92rem;
+  }
+  .stat-num-premium {
+    font-size: 2rem;
+  }
+  .bento-icon-premium {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+}

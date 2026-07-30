@@ -4,7 +4,7 @@ import { FiDownload, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 import coder3d from '../assets/coder3d.gif?v=2';
 import { Typewriter } from 'react-simple-typewriter';
 import Magnetic from './Magnetic';
-import AudioPitchPlayer from './AudioPitchPlayer';
+
 import './Hero.css';
 
 const Hero = () => {
@@ -60,8 +60,7 @@ const Hero = () => {
             <span className="highlight-pill"><FiCheckCircle /> Python & TypeScript</span>
           </div>
 
-          {/* Interactive AI Voice Elevator Pitch Player */}
-          <AudioPitchPlayer />
+
           
           <div className="hero-buttons-premium">
             <Magnetic>

@@ -167,3 +167,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .education-container-wide {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .edu-header-title {
+    font-size: 1.02rem;
+  }
+  .edu-card-item {
+    padding: 16px;
+  }
+}

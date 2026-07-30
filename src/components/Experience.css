@@ -174,11 +174,19 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
   }
   
+  .exp-header-info {
+    align-items: center;
+  }
+
   .exp-title-row, .exp-meta-row {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   
   .exp-company-premium {
@@ -186,10 +194,32 @@
   }
   
   .exp-card-premium {
-    padding: 30px 20px;
+    padding: 24px 18px;
   }
   
   .bullet-text {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-card-premium {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+  .exp-title-row h3 {
+    font-size: 1.35rem;
+  }
+  .exp-icon-wrapper-premium {
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+  }
+  .exp-details-container {
+    padding-left: 0;
+  }
+  .bullet-text {
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
 }

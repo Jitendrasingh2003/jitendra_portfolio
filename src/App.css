@@ -58,8 +58,8 @@
   background: var(--gradient-glow);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
   .custom-cursor-dot, .cursor-ring-follower {
-    display: none;
+    display: none !important;
   }
 }

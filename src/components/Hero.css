@@ -291,10 +291,14 @@
 }
 
 @media (max-width: 992px) {
+  .hero {
+    padding-top: 120px;
+    min-height: auto;
+  }
   .hero-content {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
   }
   .hero-text {
     align-items: center;
@@ -303,20 +307,31 @@
     justify-content: center;
     width: 100%;
   }
+  .graphic-glass-frame {
+    max-width: 420px;
+  }
   .description-premium {
     margin: 0 auto;
   }
+  .hero-highlights-pills {
+    justify-content: center;
+  }
   .hero-buttons-premium {
     justify-content: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .name-premium {
-    font-size: 3rem;
+    font-size: 3.2rem;
+  }
+  .hero-main-role-badge {
+    white-space: normal;
+    text-align: center;
   }
   .role-main-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .title-premium {
     font-size: 1.4rem;
@@ -324,9 +339,47 @@
   .hero-buttons-premium {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
   .btn-hero-primary, .btn-hero-outline {
     width: 100%;
     justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting-badge-premium {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+  }
+  .hero-main-role-badge {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+  }
+  .role-main-text {
+    font-size: 0.88rem;
+  }
+  .name-premium {
+    font-size: 2.4rem;
+    letter-spacing: -1px;
+  }
+  .title-premium {
+    font-size: 1.18rem;
+  }
+  .description-premium {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .graphic-glass-frame {
+    max-width: 100%;
+  }
+  .holographic-aura-ring {
+    width: 280px;
+    height: 280px;
   }
 }

@@ -602,12 +602,12 @@
 @media (max-width: 900px) {
   .modal-content-split {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 30px;
   }
   .modal-header-cert {
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 16px;
   }
   .modal-issuer-cert {
     justify-content: center;
@@ -620,5 +620,39 @@
   }
   .cert-card.cert-card-long-expanded {
     padding: 28px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-card.cert-card-long-expanded {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+  .cert-main-title {
+    font-size: 1.35rem;
+  }
+  .cert-modal-overlay {
+    padding: 15px 10px;
+  }
+  .cert-modal-content {
+    max-height: calc(100vh - 30px);
+    border-radius: 18px;
+  }
+  .modal-inner-cert {
+    padding: 24px 16px;
+  }
+  .close-modal-cert {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  .cert-footer-actions {
+    flex-direction: column;
+  }
+  .explore-cert-btn, .cert-direct-doc-link {
+    width: 100%;
+    justify-content: center;
   }
 }

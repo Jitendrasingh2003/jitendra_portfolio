@@ -592,12 +592,12 @@
 @media (max-width: 900px) {
   .modal-content-split-premium {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 30px;
   }
   .modal-header-premium {
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 16px;
   }
   .modal-subtitle-premium {
     justify-content: center;
@@ -610,5 +610,50 @@
   }
   .project-card.long-card-expanded {
     padding: 28px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-filter-pills {
+    gap: 8px;
+    margin-bottom: 25px;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+  }
+  .project-card.long-card-expanded {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+  .project-card-title {
+    font-size: 1.35rem;
+  }
+  .project-modal-overlay-premium {
+    padding: 15px 10px;
+  }
+  .project-modal-content-premium {
+    max-height: calc(100vh - 30px);
+    border-radius: 18px;
+  }
+  .modal-inner-premium {
+    padding: 24px 16px;
+  }
+  .close-modal-premium {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  .project-main-title {
+    font-size: 1.45rem;
+  }
+  .project-footer-actions {
+    flex-direction: column;
+  }
+  .explore-details-btn, .github-direct-link {
+    width: 100%;
+    justify-content: center;
   }
 }
