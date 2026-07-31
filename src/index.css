@@ -98,7 +98,7 @@ ul {
 /* Section Structure */
 .section {
   min-height: 100vh;
-  padding: 130px 10%;
+  padding: 100px 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -218,25 +218,28 @@ ul {
     min-height: auto !important;
     height: auto !important;
     display: block !important;
-    padding: 40px 6% 20px 6% !important;
+    padding: 40px 5% 20px 5% !important;
+  }
+  .section-heading-container-premium {
+    margin-bottom: 30px;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 30px 5% 10px 5% !important;
+    padding: 24px 4% 12px 4% !important;
     min-height: auto !important;
     height: auto !important;
     display: block !important;
   }
   .section-title {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
   }
   .section-heading-container-premium {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 16px;
   }
   .heading-line-premium {
     width: 100%;
@@ -244,33 +247,34 @@ ul {
   }
   #about, #experience, #projects, #skills, #certifications, #contact {
     padding-top: 20px !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 8px !important;
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 20px 4% 10px 4% !important;
+    padding: 16px 3.5% 8px 3.5% !important;
     min-height: auto !important;
     height: auto !important;
     display: block !important;
   }
   .section-heading-container-premium {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    gap: 6px;
   }
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
     letter-spacing: -0.8px;
   }
   .btn {
-    padding: 12px 20px;
-    font-size: 0.92rem;
+    padding: 11px 18px;
+    font-size: 0.88rem;
     width: 100%;
     justify-content: center;
   }
   #about, #experience, #projects, #skills, #certifications, #contact {
-    padding-top: 15px !important;
-    padding-bottom: 5px !important;
+    padding-top: 14px !important;
+    padding-bottom: 6px !important;
   }
 }
 

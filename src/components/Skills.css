@@ -53,8 +53,8 @@
 
 .skills-matrix-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+  gap: 24px;
 }
 
 .skills-category-card {
@@ -191,34 +191,90 @@
 }
 
 @media (max-width: 768px) {
+  .skills-filter-pills {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
   .skills-matrix-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   .skills-badges-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+    gap: 8px;
   }
   .skills-category-card {
-    padding: 24px 20px;
+    padding: 18px 14px;
+    gap: 14px;
+    border-radius: 18px;
+  }
+  .skills-card-header {
+    padding-bottom: 12px;
+    gap: 12px;
+  }
+  .skills-cat-title {
+    font-size: 1.15rem;
+  }
+  .skill-badge-item {
+    padding: 10px 12px;
   }
 }
 
 @media (max-width: 480px) {
   .skills-filter-pills {
-    gap: 8px;
-    margin-bottom: 25px;
+    gap: 5px;
+    margin-bottom: 14px;
   }
   .skills-pill {
-    padding: 8px 16px;
-    font-size: 0.82rem;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    gap: 5px;
+    border-radius: 22px;
+  }
+  .skills-pill .pill-icon {
+    font-size: 0.9rem;
+  }
+  .skills-matrix-grid {
+    gap: 10px;
   }
   .skills-category-card {
-    padding: 20px 16px;
-    border-radius: 18px;
+    padding: 14px 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+  .skills-card-header {
+    padding-bottom: 10px;
+    gap: 10px;
   }
   .skills-cat-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  .skills-cat-desc {
+    font-size: 0.8rem;
   }
   .skills-badges-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 6px;
+  }
+  .skill-badge-item {
+    padding: 8px 10px;
+    border-radius: 10px;
+    gap: 4px;
+  }
+  .skill-name {
+    font-size: 0.82rem;
+  }
+  .skill-level-badge {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+  .skill-badge-tag {
+    font-size: 0.7rem;
+  }
+  .skills-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    border-radius: 12px;
   }
 }

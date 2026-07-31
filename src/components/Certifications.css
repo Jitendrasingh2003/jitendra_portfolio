@@ -1,7 +1,7 @@
 .cert-grid-expanded {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: 28px;
   position: relative;
   perspective: 1000px;
 }
@@ -602,57 +602,135 @@
 @media (max-width: 900px) {
   .modal-content-split {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
   .modal-header-cert {
     flex-direction: column;
     text-align: center;
-    gap: 16px;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
   .modal-issuer-cert {
     justify-content: center;
   }
   .modal-header-text h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .cert-grid-expanded {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
   .cert-card.cert-card-long-expanded {
-    padding: 28px 22px;
+    padding: 22px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-card.cert-card-long-expanded {
+    padding: 18px 14px;
+  }
+  .cert-main-title {
+    font-size: 1.3rem;
+  }
+  .cert-body-expanded {
+    gap: 8px;
+  }
+  .cert-inline-image-box {
+    margin: 4px 0 8px;
+    padding: 4px;
+  }
+  .cert-inline-img {
+    max-height: 250px;
+  }
+  .cert-highlights-box {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+  .cert-header {
+    margin-bottom: 12px;
+  }
+  .cert-footer-actions {
+    padding-top: 12px;
+    gap: 8px;
+  }
+  .cert-skills-full {
+    margin-bottom: 16px;
+    gap: 6px;
   }
 }
 
 @media (max-width: 480px) {
   .cert-card.cert-card-long-expanded {
-    padding: 22px 16px;
-    border-radius: 18px;
+    padding: 14px 12px;
+    border-radius: 14px;
   }
   .cert-main-title {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
+  }
+  .cert-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+  }
+  .cert-issuer-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+  .cert-description-text {
+    font-size: 0.85rem;
   }
   .cert-modal-overlay {
-    padding: 15px 10px;
+    padding: 8px 6px;
   }
   .cert-modal-content {
-    max-height: calc(100vh - 30px);
-    border-radius: 18px;
+    max-height: calc(100vh - 16px);
+    border-radius: 14px;
   }
   .modal-inner-cert {
-    padding: 24px 16px;
+    padding: 16px 12px;
   }
   .close-modal-cert {
-    top: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
   .cert-footer-actions {
     flex-direction: column;
+    gap: 6px;
   }
   .explore-cert-btn, .cert-direct-doc-link {
     width: 100%;
     justify-content: center;
+    font-size: 0.82rem;
+    padding: 10px 14px;
+  }
+  .cert-grid-expanded {
+    gap: 10px;
+  }
+  .cert-inline-img {
+    max-height: 200px;
+  }
+  .cert-desc-text {
+    padding: 14px;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+  .cert-header {
+    margin-bottom: 8px;
+  }
+  .cert-body-expanded {
+    gap: 6px;
+  }
+  .cert-badge-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  .cert-skills-full {
+    margin-bottom: 12px;
+    gap: 4px;
   }
 }

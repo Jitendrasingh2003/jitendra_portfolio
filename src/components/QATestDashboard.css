@@ -249,6 +249,7 @@
 @media (max-width: 768px) {
   .qa-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
   .qa-terminal-top {
     flex-direction: column;
@@ -257,5 +258,30 @@
   .run-test-btn {
     width: 100%;
     justify-content: center;
+  }
+  .qa-dashboard-container {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qa-dashboard-container {
+    padding: 14px 12px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .qa-metrics-grid {
+    gap: 6px;
+  }
+  .qa-metric-card {
+    padding: 8px 10px;
+  }
+  .qa-terminal-body {
+    padding: 12px;
+    gap: 10px;
+  }
+  .qa-header-title {
+    font-size: 0.95rem;
   }
 }

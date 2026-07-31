@@ -165,18 +165,65 @@
 @media (max-width: 992px) {
   .edu-cards-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-container-wide {
+    padding: 18px 14px;
+    gap: 12px;
+  }
+  .edu-header-wide {
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+  .edu-card-item {
+    padding: 14px;
+    gap: 6px;
+  }
+  .edu-degree-heading {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
   .education-container-wide {
-    padding: 18px 14px;
-    border-radius: 16px;
+    padding: 12px 10px;
+    border-radius: 12px;
+    gap: 8px;
   }
   .edu-header-title {
-    font-size: 1.02rem;
+    font-size: 0.9rem;
+  }
+  .edu-status-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
   .edu-card-item {
-    padding: 16px;
+    padding: 12px 10px;
+    border-radius: 10px;
+    gap: 5px;
+  }
+  .edu-degree-heading {
+    font-size: 0.88rem;
+  }
+  .edu-school-heading {
+    font-size: 0.8rem;
+  }
+  .edu-icon-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .edu-cards-grid {
+    gap: 8px;
+  }
+  .edu-bullets li {
+    font-size: 0.72rem;
+  }
+  .edu-meta-info {
+    font-size: 0.75rem;
   }
 }

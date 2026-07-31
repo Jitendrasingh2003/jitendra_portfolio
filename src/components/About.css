@@ -1,7 +1,7 @@
 .bento-grid-premium {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 22px;
   position: relative;
 }
 
@@ -269,6 +269,7 @@
 @media (max-width: 1024px) {
   .bento-grid-premium {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
   .main-intro-premium {
     grid-column: span 2;
@@ -284,35 +285,98 @@
 @media (max-width: 768px) {
   .bento-grid-premium {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
   .main-intro-premium, .specialties-grid-container, .stats-premium, .tech-icons-premium, .terminal-block-premium {
     grid-column: span 1;
   }
+  .main-intro-premium {
+    grid-row: span 1;
+  }
   .specialties-grid-container {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
-  .terminal-block-premium {
-    margin-top: 25px;
-  }
-}
-
-@media (max-width: 480px) {
   .bento-item-premium {
     padding: 20px 16px;
-    border-radius: 18px;
+  }
+  .terminal-block-premium {
+    margin-top: 6px;
   }
   .main-intro-premium h3 {
     font-size: 1.45rem;
   }
   .bio-paragraph {
     font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-grid-premium {
+    gap: 8px;
+  }
+  .bento-item-premium {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+  .main-intro-premium h3 {
+    font-size: 1.2rem;
+  }
+  .bio-paragraph {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .bio-skills-tags {
+    gap: 6px;
+  }
+  .bio-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
   .stat-num-premium {
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+  .stat-label-premium {
+    font-size: 0.75rem;
+  }
+  .stat-divider {
+    margin: 8px 0;
   }
   .bento-icon-premium {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-radius: 14px;
+  }
+  .specialty-card-premium {
+    padding: 16px;
+  }
+  .specialty-card-premium h4 {
+    font-size: 1rem;
+  }
+  .specialty-card-premium p {
+    font-size: 0.82rem;
+  }
+  .specialty-icon {
     font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  .tech-icons-row-premium {
+    gap: 8px;
+  }
+  .tech-icon-wrapper {
+    height: 48px;
+    font-size: 1.3rem;
+  }
+  .role-tag {
+    font-size: 0.78rem;
+    padding: 3px 10px;
+  }
+  .bio-subtitle-pill {
+    margin-bottom: 10px;
+    gap: 6px;
   }
 }

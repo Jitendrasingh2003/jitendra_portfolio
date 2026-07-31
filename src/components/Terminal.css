@@ -61,3 +61,33 @@
 .code-block span {
   font-family: 'Fira Code', monospace !important;
 }
+
+@media (max-width: 768px) {
+  .terminal-body {
+    padding: 18px;
+    min-height: 200px;
+  }
+  .code-block {
+    font-size: 0.9rem;
+  }
+  .terminal-container {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-body {
+    padding: 14px;
+    min-height: 170px;
+  }
+  .code-block {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .terminal-container {
+    border-radius: 14px;
+  }
+  .terminal-header {
+    padding: 10px 14px;
+  }
+}

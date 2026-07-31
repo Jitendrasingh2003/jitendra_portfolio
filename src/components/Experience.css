@@ -1,7 +1,7 @@
 .experience-container-premium {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 24px;
   position: relative;
 }
 
@@ -174,9 +174,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
   }
   
   .exp-header-info {
@@ -187,6 +187,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
   }
   
   .exp-company-premium {
@@ -194,32 +195,79 @@
   }
   
   .exp-card-premium {
-    padding: 24px 18px;
+    padding: 18px 14px;
+  }
+
+  .exp-title-row h3 {
+    font-size: 1.35rem;
   }
   
   .bullet-text {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .experience-container-premium {
+    gap: 12px;
+  }
+
+  .exp-details-premium {
+    gap: 10px;
+  }
+
+  .exp-icon-wrapper-premium {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .exp-card-premium {
-    padding: 20px 14px;
-    border-radius: 18px;
+    padding: 14px 10px;
+    border-radius: 14px;
+  }
+  .exp-header-premium {
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
   .exp-title-row h3 {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
   }
   .exp-icon-wrapper-premium {
-    width: 54px;
-    height: 54px;
-    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    border-radius: 14px;
   }
   .exp-details-container {
     padding-left: 0;
   }
+  .exp-details-premium {
+    gap: 8px;
+  }
+  .exp-details-premium li {
+    gap: 10px;
+  }
   .bullet-text {
-    font-size: 0.88rem;
-    line-height: 1.55;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .bullet-icon {
+    font-size: 0.9rem;
+  }
+  .exp-date-badge-premium {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+  .exp-company-premium {
+    font-size: 0.95rem;
+  }
+  .exp-location-premium {
+    font-size: 0.82rem;
+  }
+  .experience-container-premium {
+    gap: 10px;
   }
 }
