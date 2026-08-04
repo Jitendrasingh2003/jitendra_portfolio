@@ -5,6 +5,13 @@ import { FiX, FiAward, FiArrowRight, FiCalendar, FiCheckCircle, FiInfo, FiStar, 
 import { BsBuilding } from 'react-icons/bs';
 import './Certifications.css';
 
+// Detect touch/mobile — 3D transforms break card layout on Android
+const isTouchDevice = () =>
+  typeof window !== 'undefined' &&
+  ('ontouchstart' in window ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+    window.innerWidth <= 768);
+
 const CertCardExpanded = ({ cert, onClick }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -35,16 +42,16 @@ const CertCardExpanded = ({ cert, onClick }) => {
   return (
     <motion.div
       className="cert-card cert-card-long-expanded"
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      style={isTouchDevice() ? {} : { rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={isTouchDevice() ? undefined : handleMouseMove}
+      onMouseLeave={isTouchDevice() ? undefined : handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       layout
     >
       <div className="cert-card-glow"></div>
-      <div style={{ transform: "translateZ(25px)" }} className="cert-card-inner-expanded">
+      <div style={isTouchDevice() ? {} : { transform: "translateZ(25px)" }} className="cert-card-inner-expanded">
         
         {/* Top Header */}
         <div className="cert-header">
@@ -172,9 +179,9 @@ const Certifications = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-heading-container-cert">
+        <div className="section-heading-container-premium">
           <h2 className="section-title">Certifications <span className="highlight-amp">&</span> Credentials</h2>
-          <div className="heading-line-cert"></div>
+          <div className="heading-line-premium"></div>
         </div>
 
         <div className="cert-grid-expanded">

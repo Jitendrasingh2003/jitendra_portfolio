@@ -48,6 +48,10 @@
   gap: 28px;
   position: relative;
   perspective: 1000px;
+  /* Prevent grid from causing horizontal scroll */
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .project-card.long-card-expanded {
@@ -745,5 +749,21 @@
   }
   .project-body {
     gap: 6px;
+  }
+}
+
+/* Mobile: disable backdrop-filter & hover transforms */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .project-card.long-card-expanded,
+  .project-modal-overlay-premium,
+  .project-modal-content-premium {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .project-card:hover {
+    transform: none !important;
+  }
+  .project-modal-overlay-premium {
+    background: rgba(5, 8, 15, 0.95) !important;
   }
 }

@@ -338,3 +338,13 @@
     margin-bottom: 18px;
   }
 }
+
+/* Mobile: disable backdrop-filter */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .contact-info-premium,
+  .contact-form-premium {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+

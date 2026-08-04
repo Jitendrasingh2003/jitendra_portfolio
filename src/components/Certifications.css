@@ -4,6 +4,10 @@
   gap: 28px;
   position: relative;
   perspective: 1000px;
+  /* Prevent grid from causing horizontal scroll */
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .cert-card.cert-card-long-expanded {
@@ -18,6 +22,11 @@
   border: 1px solid var(--border-card);
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  /* CRITICAL: clip any overflowing 3D-transform content */
+  overflow: hidden;
+  /* Ensure card never exceeds column width */
+  width: 100%;
+  min-width: 0;
 }
 
 .cert-card-glow {
@@ -49,20 +58,29 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* Prevent inner content from overflowing card */
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
 }
 
 .cert-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
 }
 
 .cert-header-left {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .cert-icon-wrapper {
@@ -95,6 +113,9 @@
   border: 1px solid var(--border-card-hover);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  /* Prevent badge from overflowing */
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cert-date {
@@ -131,8 +152,13 @@
   background: var(--bg-dark);
   padding: 4px 12px;
   border-radius: 8px;
-  width: max-content;
+  /* FIXED: was width:max-content which caused overflow on mobile */
+  width: 100%;
   border: 1px solid var(--border-card);
+  word-break: break-all;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Full Certificate View Box on Card */
@@ -649,6 +675,10 @@
   }
   .cert-header {
     margin-bottom: 12px;
+    /* Stack header to column on mobile to prevent overflow */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
   .cert-footer-actions {
     padding-top: 12px;
@@ -657,6 +687,27 @@
   .cert-skills-full {
     margin-bottom: 16px;
     gap: 6px;
+  }
+  .cert-code-sub {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    /* Ensure the verification code stays within card */
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-all;
+  }
+  .highlights-list li {
+    /* Ensure highlight text wraps properly */
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .cert-issuer-badge {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+  .cert-date {
+    font-size: 0.78rem;
+    padding: 4px 10px;
   }
 }
 
@@ -732,5 +783,48 @@
   .cert-skills-full {
     margin-bottom: 12px;
     gap: 4px;
+  }
+  /* Force cert header to column on very small phones */
+  .cert-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .cert-code-sub {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    max-width: 100%;
+    word-break: break-all;
+    white-space: normal;
+  }
+  .cert-main-title {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+}
+
+/* Mobile: disable backdrop-filter & hover transforms */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .cert-card.cert-card-long-expanded,
+  .cert-modal-overlay,
+  .cert-modal-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .cert-card:hover {
+    transform: none !important;
+  }
+  .cert-modal-overlay {
+    background: rgba(5, 8, 15, 0.95) !important;
+  }
+  /* Ensure the card NEVER grows wider than viewport on Android */
+  .cert-card.cert-card-long-expanded,
+  .cert-card-inner-expanded,
+  .cert-body-expanded {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }

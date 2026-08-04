@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Lenis from 'lenis';
+
+// Detect touch/mobile devices
+const checkMobile = () =>
+  typeof window !== 'undefined' &&
+  (window.innerWidth <= 768 ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+    window.matchMedia('(hover: none) and (pointer: coarse)').matches);
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -17,7 +24,8 @@ import './App.css';
 function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [cursorHovered, setCursorHovered] = useState(false);
-  const [theme, setTheme] = useState('space'); // 'space' | 'nebula' | 'emerald'
+  const [theme, setTheme] = useState('space');
+  const [isMobile] = useState(() => checkMobile());
   const { scrollYProgress } = useScroll();
   
   const scaleX = useSpring(scrollYProgress, {
@@ -35,7 +43,10 @@ function App() {
   };
 
   useEffect(() => {
-    // Initialize Lenis Smooth Scroll
+    // Skip Lenis on mobile — it causes scroll lag on Android
+    if (isMobile) return;
+
+    // Initialize Lenis Smooth Scroll (desktop only)
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -72,33 +83,37 @@ function App() {
       window.removeEventListener('mousemove', handleMouseMove);
       lenis.destroy();
     };
-  }, []);
+  }, [isMobile]);;
 
   return (
     <div className={`App ${theme}-theme`}>
       {/* Dynamic Interactive Background Engine */}
       <BackgroundCanvas theme={theme} />
 
-      {/* Sleek Magnetic Precision Custom Cursor */}
-      <motion.div 
-        className={`custom-cursor-dot ${theme} ${cursorHovered ? 'hovered' : ''}`}
-        animate={{
-          x: mousePos.x - (cursorHovered ? 8 : 4),
-          y: mousePos.y - (cursorHovered ? 8 : 4),
-          scale: cursorHovered ? 1.8 : 1
-        }}
-        transition={{ type: 'spring', stiffness: 700, damping: 35, mass: 0.1 }}
-      />
-      <motion.div 
-        className={`cursor-ring-follower ${theme} ${cursorHovered ? 'hovered' : ''}`}
-        animate={{
-          x: mousePos.x - (cursorHovered ? 28 : 18),
-          y: mousePos.y - (cursorHovered ? 28 : 18),
-          width: cursorHovered ? 56 : 36,
-          height: cursorHovered ? 56 : 36
-        }}
-        transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.5 }}
-      />
+      {/* Sleek Magnetic Precision Custom Cursor — desktop only */}
+      {!isMobile && (
+        <>
+          <motion.div 
+            className={`custom-cursor-dot ${theme} ${cursorHovered ? 'hovered' : ''}`}
+            animate={{
+              x: mousePos.x - (cursorHovered ? 8 : 4),
+              y: mousePos.y - (cursorHovered ? 8 : 4),
+              scale: cursorHovered ? 1.8 : 1
+            }}
+            transition={{ type: 'spring', stiffness: 700, damping: 35, mass: 0.1 }}
+          />
+          <motion.div 
+            className={`cursor-ring-follower ${theme} ${cursorHovered ? 'hovered' : ''}`}
+            animate={{
+              x: mousePos.x - (cursorHovered ? 28 : 18),
+              y: mousePos.y - (cursorHovered ? 28 : 18),
+              width: cursorHovered ? 56 : 36,
+              height: cursorHovered ? 56 : 36
+            }}
+            transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.5 }}
+          />
+        </>
+      )}
 
       {/* Top Scroll Progress Bar */}
       <motion.div className="progress-bar" style={{ scaleX }} />

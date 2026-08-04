@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import './BackgroundCanvas.css';
 
+// Detect mobile/low-power devices
+const isMobile = () =>
+  typeof window !== 'undefined' &&
+  (window.innerWidth <= 768 ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent));
+
 const BackgroundCanvas = ({ theme = 'space' }) => {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: -1000, y: -1000, active: false });
@@ -8,7 +14,7 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     let animationFrameId;
 
     let width = (canvas.width = window.innerWidth);
@@ -61,9 +67,14 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
 
     const colors = themeColors[theme] || themeColors.space;
 
-    // Particle Configuration
+    // Particle Configuration — reduced for mobile
+    const mobile = isMobile();
     let particles = [];
-    const particleCount = Math.min(Math.floor((width * height) / 11000), 90);
+    const particleCount = mobile
+      ? Math.min(Math.floor((width * height) / 40000), 20)
+      : Math.min(Math.floor((width * height) / 11000), 90);
+    const maxDistance = mobile ? 80 : 145;
+    const mouseMaxDistance = mobile ? 0 : 190; // disable mouse on mobile
 
     function initParticles() {
       particles = [];
@@ -71,9 +82,9 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 1.6 + 0.8,
+          vx: (Math.random() - 0.5) * (mobile ? 0.3 : 0.5),
+          vy: (Math.random() - 0.5) * (mobile ? 0.3 : 0.5),
+          radius: Math.random() * (mobile ? 1.2 : 1.6) + 0.8,
           color: Math.random() > 0.45 ? colors.primary : colors.secondary,
           alpha: Math.random() * 0.45 + 0.35
         });
@@ -84,10 +95,15 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
 
     // Render Loop
     const render = () => {
-      ctx.clearRect(0, 0, width, height);
+      // On mobile use a solid fill instead of clearRect for perf
+      if (mobile) {
+        ctx.fillStyle = getComputedStyle(document.documentElement)
+          .getPropertyValue('--bg-dark').trim() || '#08090d';
+        ctx.fillRect(0, 0, width, height);
+      } else {
+        ctx.clearRect(0, 0, width, height);
+      }
 
-      const maxDistance = 145;
-      const mouseMaxDistance = 190;
       const mouse = mouseRef.current;
 
       // Update & Draw Particles
@@ -100,15 +116,17 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
         if (p1.x < 0 || p1.x > width) p1.vx *= -1;
         if (p1.y < 0 || p1.y > height) p1.vy *= -1;
 
-        // Draw Dot
+        // Draw Dot — skip shadowBlur on mobile (huge perf hit)
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
         ctx.fillStyle = p1.color;
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = p1.color;
+        if (!mobile) {
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = p1.color;
+        }
         ctx.globalAlpha = p1.alpha;
         ctx.fill();
-        ctx.shadowBlur = 0;
+        if (!mobile) ctx.shadowBlur = 0;
 
         // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
@@ -129,8 +147,8 @@ const BackgroundCanvas = ({ theme = 'space' }) => {
           }
         }
 
-        // Mouse Interactivity
-        if (mouse.active) {
+        // Mouse Interactivity — desktop only
+        if (!mobile && mouse.active) {
           const mdx = p1.x - mouse.x;
           const mdy = p1.y - mouse.y;
           const mdist = Math.sqrt(mdx * mdx + mdy * mdy);

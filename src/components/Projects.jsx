@@ -4,6 +4,13 @@ import { FiExternalLink, FiX, FiArrowUpRight, FiFolder, FiClock, FiStar, FiInfo,
 import { FaGithub } from 'react-icons/fa';
 import './Projects.css';
 
+// Detect touch/mobile — 3D transforms break card layout on Android
+const isTouchDevice = () =>
+  typeof window !== 'undefined' &&
+  ('ontouchstart' in window ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+    window.innerWidth <= 768);
+
 const ProjectCard = ({ project, onClick }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -34,16 +41,16 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <motion.div 
       className="project-card long-card-expanded"
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      style={isTouchDevice() ? {} : { rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={isTouchDevice() ? undefined : handleMouseMove}
+      onMouseLeave={isTouchDevice() ? undefined : handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       layout
     >
       <div className="project-card-glow"></div>
-      <div style={{ transform: "translateZ(25px)" }} className="project-content">
+      <div style={isTouchDevice() ? {} : { transform: "translateZ(25px)" }} className="project-content">
         
         {/* Top Header */}
         <div className="project-header">

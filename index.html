@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
     <title>Jitendra Singh — QA Automation Specialist & AI Full Stack Engineer</title>
     <meta name="description" content="Portfolio of Jitendra Singh: Quality Assurance Automation Specialist & Full Stack Engineer crafting production-grade web applications with React 19, Selenium E2E, Postman API, Node.js, MySQL, and AI Integrations." />
     <meta name="keywords" content="Jitendra Singh, QA Automation Specialist, Software Tester, Full Stack Developer, React.js, Node.js, Express.js, Selenium WebDriver, Postman API, MySQL, WebSockets, SmartShip" />
     <meta name="author" content="Jitendra Singh" />
     <meta name="theme-color" content="#050b14" />
+
+    <!-- Preconnect for faster Google Fonts loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -24,17 +31,6 @@
   </head>
   <body>
     <div id="root"></div>
-    
-    <!-- Liquid Distortion Filter -->
-    <svg style="display: none;">
-      <filter id="liquid">
-        <feTurbulence baseFrequency="0.015" numOctaves="3" result="noise" seed="0">
-          <animate attributeName="baseFrequency" dur="10s" values="0.015;0.025;0.015" repeatCount="indefinite" />
-        </feTurbulence>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" />
-      </filter>
-    </svg>
-
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

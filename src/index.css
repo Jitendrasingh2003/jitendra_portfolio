@@ -55,6 +55,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-main);
+  /* Prevent any element from exceeding viewport width */
+  max-width: 100%;
 }
 
 html {
@@ -297,4 +299,68 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* ============================================
+   MOBILE GLOBAL PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  /* Disable SVG noise grain texture on mobile — wasted GPU */
+  body::after {
+    display: none !important;
+  }
+
+  /* Disable backdrop-filter on mobile — #1 Android performance killer */
+  .glass,
+  .glass-card-premium,
+  .glass-card-premium:hover {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Disable hover transform animations on touch (they run on tap and cause jank) */
+  .glass-card-premium:hover,
+  .glass-card-premium:active {
+    transform: none !important;
+  }
+
+  /* Native smooth scrolling on mobile (Lenis disabled) */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+  }
+
+  /* Prevent layout shifts from hover transforms on touch */
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none !important;
+  }
+
+  /* Prevent long text from overflowing horizontally */
+  p, h1, h2, h3, h4, h5, h6, span, li, a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Canvas should always fill screen — exempt from max-width:100% */
+  canvas {
+    max-width: none !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+  /* Reduce box-shadow complexity on very small screens */
+  .glass-card-premium {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  }
+  .section {
+    /* Add scroll snap for smoother page navigation feel */
+    -webkit-overflow-scrolling: touch;
+  }
 }

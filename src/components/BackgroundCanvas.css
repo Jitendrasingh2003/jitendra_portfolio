@@ -129,3 +129,43 @@
   50% { transform: translate(-10%, -8%) rotate(-180deg) scale(1.1); }
   100% { transform: translate(6%, -12%) rotate(-360deg) scale(0.9); }
 }
+
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   Disable heavy GPU effects on Android/mobile
+   ============================================ */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  /* Reduce aurora blur drastically — blur(140px) kills Android GPU */
+  .ambient-aurora {
+    filter: blur(60px) !important;
+    opacity: 0.12 !important;
+    animation-duration: 40s !important; /* slow down animation */
+  }
+
+  /* Reduce aurora sizes on small screens */
+  .aurora-1 {
+    width: 70vw;
+    height: 70vw;
+  }
+  .aurora-2 {
+    width: 65vw;
+    height: 65vw;
+  }
+
+  /* Disable scanline on mobile — unnecessary CPU work */
+  .cyber-scanline {
+    display: none;
+  }
+
+  /* Reduce grid opacity for performance */
+  .cyber-grid-overlay {
+    opacity: 0.08;
+  }
+}
+
+@media (max-width: 480px) {
+  .ambient-aurora {
+    filter: blur(40px) !important;
+    opacity: 0.08 !important;
+  }
+}
