@@ -7,15 +7,23 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'motion': ['framer-motion'],
-          'lenis': ['lenis'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'motion';
+            }
+            if (id.includes('lenis')) {
+              return 'lenis';
+            }
+          }
         }
       }
     },
-    // Reduce chunk size warnings
     chunkSizeWarningLimit: 600,
   }
 })
+
 
